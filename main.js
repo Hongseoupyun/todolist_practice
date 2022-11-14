@@ -33,21 +33,31 @@ window.addEventListener("load", () => {
 
     const taskEditEl = document.createElement("button");
     taskEditEl.classList.add("edit");
-    taskEditEl.innerHTML = "Edit"
+    taskEditEl.innerHTML = "Edit";
 
     const taskDeleteEl = document.createElement("button");
     taskDeleteEl.classList.add("delete");
-    taskDeleteEl.innerHTML = "Delete"
+    taskDeleteEl.innerHTML = "Delete";
 
     taskActionEl.appendChild(taskEditEl);
     taskActionEl.appendChild(taskDeleteEl);
 
-    taskEl.appendChild(taskActionEl)
+    taskEl.appendChild(taskActionEl);
 
     listEl.appendChild(taskEl);
 
     input.value = "";
 
-    
+    taskEditEl.addEventListener("click", () => {
+      if(taskEditEl.innerText.toLowerCase() == "edit"){
+        taskInputEl.removeAttribute("readonly");
+        taskInputEl.focus();
+        taskEditEl.innerText = "Save"
+      } else {
+        taskInputEl.setAttribute("readonly","readonly")
+        taskEditEl.innerText = "Edit"
+      }
+      
+    });
   });
 });
