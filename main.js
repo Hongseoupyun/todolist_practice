@@ -49,15 +49,18 @@ window.addEventListener("load", () => {
     input.value = "";
 
     taskEditEl.addEventListener("click", () => {
-      if(taskEditEl.innerText.toLowerCase() == "edit"){
+      if (taskEditEl.innerText.toLowerCase() == "edit") {
         taskInputEl.removeAttribute("readonly");
         taskInputEl.focus();
-        taskEditEl.innerText = "Save"
+        taskEditEl.innerText = "Save";
       } else {
-        taskInputEl.setAttribute("readonly","readonly")
-        taskEditEl.innerText = "Edit"
+        taskInputEl.setAttribute("readonly", "readonly");
+        taskEditEl.innerText = "Edit";
       }
-      
+    });
+
+    taskDeleteEl.addEventListener("click", () => {
+      listEl.removeChild(taskEl);
     });
   });
 });
